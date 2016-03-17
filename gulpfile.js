@@ -3,6 +3,7 @@
 var watchify = require('watchify'),
     browserify = require('browserify'),
     babelify = require('babelify'),
+    coffeeify = require('coffeeify'),
     gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
@@ -16,7 +17,10 @@ var customOpts = {
   debug: true
 };
 var opts = _.assign({}, watchify.args, customOpts);
-var b = watchify(browserify(opts).transform(babelify));
+var b = watchify(browserify(opts)
+          .transform(babelify)
+          .transform(coffeeify));
+
 
 gulp.task('js', bundle);
 gulp.task('serve', function() {
