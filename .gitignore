@@ -1,3 +1,4 @@
+#### Node/JS Defaults ####
 # Logs
 logs
 *.log
@@ -31,3 +32,24 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+
+#### Project ####
+dist/
+
+#### Editors ####
+# Vim
+*.swp
+*.*.swp
+
+# Emacs
+.#*.*
+\#*#
+*~
+*.*~
+
+# Intellij
+.idea/
+
+# Zed
+.zedstate
