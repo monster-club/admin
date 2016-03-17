@@ -9,6 +9,7 @@ var watchify = require('watchify'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps'),
+    liveify = require('browserify-livescript'),
     _ = require('lodash'),
     server = require('gulp-webserver');
 
@@ -19,6 +20,7 @@ var customOpts = {
 var opts = _.assign({}, watchify.args, customOpts);
 var b = watchify(browserify(opts)
           .transform(babelify)
+          .transform(liveify)
           .transform(coffeeify));
 
 
