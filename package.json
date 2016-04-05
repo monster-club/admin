@@ -4,6 +4,7 @@
   "description": "Admin panel for Pokemon Club services",
   "main": "index.js",
   "dependencies": {
+    "gulp-sass": "^2.2.0",
     "lodash": "^4.6.1"
   },
   "devDependencies": {
@@ -11,6 +12,8 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",

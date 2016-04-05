@@ -4,7 +4,9 @@ var watchify = require('watchify'),
     browserify = require('browserify'),
     babelify = require('babelify'),
     gulp = require('gulp'),
+    sass = require('gulp-sass'),
     source = require('vinyl-source-stream'),
+    autoprefixer = require('gulp-autoprefixer'),
     buffer = require('vinyl-buffer'),
     gutil = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -40,6 +42,19 @@ gulp.task('serve', function() {
       port: 8001,
       open: true
     }));
+});
+
+gulp.task('sass', function() {
+  gulp.src(['./sass/*.sass', './sass/*.scss'])
+      .on('error', function(e) {
+        handleError(e, this);
+      })
+      .pipe(sourcemaps.init())
+      .pipe(sass())
+      .pipe(sass({indentationSyntax: true})
+      .pipe(autoprefixer('last 2 versions'))
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('build', bundle);
