@@ -49,12 +49,11 @@ gulp.task('sass', function() {
       .on('error', function(e) {
         handleError(e, this);
       })
-      .pipe(sourcemaps.init())
-      .pipe(sass())
-      .pipe(sass({indentationSyntax: true})
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(sass({indentationSyntax: true}))
       .pipe(autoprefixer('last 2 versions'))
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./css/'));
+      .pipe(sourcemaps.write('./dist'))
+      .pipe(gulp.dest('./css/'))
 });
 
 gulp.task('build', bundle);
